@@ -6,7 +6,40 @@
         xmlns:local="clr-namespace:ellips"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Width="262">
+           <Ellipse Height="{Binding ElementName=txtHeight, Path=Text}"
+                     Width="{Binding ElementName=txtWidth, Path=Text}"
+                     Stroke="{Binding ElementName=cmdBorder, Path=SelectedItem.Content}"
+                     StrokeThickness="{Binding ElementName=slDikte, Path=Value}"
+                     Fill="{Binding ElementName=cmdKleur, Path=SelectedItem.Content}">
+            </Ellipse>
+           <!-- <Ellipse Height="100"
+                     Width="100"
+                     Stroke="Red"
+                     StrokeThickness="5"
+                     Fill="Blue">
+            </Ellipse>-->
+        </StackPanel>
+        <StackPanel>
+            <Label Content="Ellipsvuling"></Label>
+            <ComboBox Name="cmdKleur" SelectedIndex="0">
+                <ComboBoxItem Name="Red">Red</ComboBoxItem>
+                <ComboBoxItem Name="Blue">Blue</ComboBoxItem>
+                <ComboBoxItem Name="Green">Green</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Dikte ellipskader (0.5-20)"></Label>
+            <Slider Name="slDikte" Maximum="20" Minimum="0.5" Value="1"></Slider>
+            <Label Content="Kleur ellipskader"></Label>
+            <ComboBox Name="cmdBorder" SelectedIndex="0">
+                <ComboBoxItem Name="brRed">Red</ComboBoxItem>
+                <ComboBoxItem Name="brBlue">Blue</ComboBoxItem>
+                <ComboBoxItem Name="brGreen">Green</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Hoogte Ellips"></Label>
+            <TextBox Name="txtHeight">100</TextBox>
+            <Label Content="Breedte Ellips"></Label>
+            <TextBox Name="txtWidth">100</TextBox>
+        </StackPanel>
+    </StackPanel>
 </Window>
